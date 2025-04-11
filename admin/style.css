@@ -1,0 +1,1347 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(135deg, rgba(34, 49, 63, 0.8), rgba(44, 62, 80, 0.8));
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(34, 49, 63, 0.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+}
+
+.navbar:hover {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9));
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    width: 50px;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.navbar-brand h1 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(255, 99, 71, 0.4), rgba(255, 140, 80, 0.4));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links a:hover {
+    background: linear-gradient(135deg, rgba(255, 99, 71, 0.6), rgba(255, 140, 80, 0.6));
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(44, 62, 80, 0.9); /* Darker background for dropdown */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 10;
+    min-width: 220px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(34, 49, 63, 0.9); /* Dark border */
+}
+
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.profile-dropdown .dropdown-menu li {
+    list-style: none;
+}
+
+.profile-dropdown .dropdown-menu a {
+    display: block;
+    padding: 18px 25px;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    background: linear-gradient(135deg, rgba(52, 73, 94, 0.6), rgba(44, 62, 80, 0.6));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-dropdown .dropdown-menu a:hover {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8));
+}
+
+/* Dropdown Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Main content section */
+main {
+    padding: 50px;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 60px;
+    padding: 30px;
+    background: rgba(44, 62, 80, 0.8); /* Darker background for sections */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #ffffff; /* White text for sections */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+section p {
+    font-size: 20px;
+    color: #dddddd; /* Lighter text color */
+}
+
+
+/* ----------------------------home tab----------------------- */
+
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 32px;
+}
+
+.table-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.table-card {
+    background: linear-gradient(135deg, rgba(34, 49, 63, 0.9), rgba(44, 62, 80, 0.9));
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    position: relative;
+}
+
+.table-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.table-card p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.status {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.occupied {
+    background-color: #e74c3c;
+}
+
+.free {
+    background-color: #2ecc71;
+}
+
+.requirement {
+    font-style: italic;
+    color: #ecf0f1;
+}
+
+.update-btn {
+    background-color: #007bff; /* Primary color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
+}
+
+.update-btn:hover {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Add a custom focus outline */
+}
+
+
+/* ------------reservation tab css----------------- */
+
+/* Reservations section styles */
+#reservations {
+    padding: 20px;
+}
+
+#reservations h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #333;
+    color: white;
+}
+
+thead th {
+    padding: 10px;
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+tbody td {
+    padding: 10px;
+}
+
+/* Button styles */
+button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Assign button */
+button[name="assign_table"] {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+button[name="assign_table"]:hover {
+    background-color: #45a049;
+}
+
+/* Delete button */
+button[name="delete_reservation"] {
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-top: 5px;
+}
+
+button[name="delete_reservation"]:hover {
+    background-color: #e53935;
+}
+
+/* Select input styles */
+select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    outline: none;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Styling for the select dropdown */
+select {
+    width: 120px; /* Adjust width as needed */
+    padding: 10px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Styling for the select dropdown when focused */
+select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.3);
+}
+
+/* Styling for buttons */
+button {
+    display: inline-block;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 5px;
+}
+
+/* Button hover effect */
+button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Button focus effect */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.3);
+}
+
+/* Styling for delete button */
+button.delete {
+    background-color: #dc3545;
+}
+
+button.delete:hover {
+    background-color: #c82333;
+}
+
+/* Styling for assign button */
+button.assign {
+    background-color: #28a745;
+    border: 1px solid #218838;
+}
+
+button.assign:hover {
+    background-color: #218838;
+    border: 1px solid #1e7e34;
+}
+
+
+/* Loading Screen */
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Hide loading screen when page is fully loaded */
+body.loaded #loading-screen {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* -----------------orders tab-------------- */
+
+#orders table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+#orders th, #orders td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+#orders th {
+    background-color: #f4f4f4;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+#orders td {
+    background-color: #fff;
+}
+
+.action-button {
+    background-color: #4CAF50; /* Green for "Mark as Prepared" */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-order {
+    background-color: #f44336; /* Red for "Delete" */
+}
+
+.action-button:hover, .delete-order:hover {
+    opacity: 0.8;
+}
+
+/* ------------------dishes tab----------------- */
+
+/* Dishes Section */
+#dishes {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #343a40;
+    text-align: center;
+    font-weight: 700;
+}
+
+.dishes-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dishes-container h3 {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Dishes Table */
+.dishes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dishes-table thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.dishes-table th, .dishes-table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.dishes-table tbody tr:nth-child(even) {
+    background-color: #f1f3f5;
+}
+
+.dishes-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.dishes-table th {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.dishes-table td {
+    font-size: 0.95rem;
+}
+.dish-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.dish-image:hover {
+    transform: scale(1.1);
+}
+
+/* Action Buttons */
+.action-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-button:hover {
+    transform: scale(1.05);
+}
+
+.edit-button {
+    background-color: #28a745;
+}
+
+.edit-button:hover {
+    background-color: #218838;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Add New Dish Button */
+.add-dish-button {
+    background-color: #007bff;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.add-dish-button:hover {
+    background-color: #0056b3;
+}
+
+/* Add New Dish Modal */
+/* Modal Background */
+.custom-dish-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background */
+    backdrop-filter: blur(5px); /* Blur effect for background */
+    transition: opacity 0.3s ease;
+}
+
+/* Modal Content */
+.custom-dish-modal-content {
+    background-color: #ffffff;
+    margin: 5% auto; /* 5% from the top and centered horizontally */
+    padding: 30px;
+    border-radius: 16px; /* More rounded corners */
+    width: 80%; /* Width of the modal */
+    max-width: 600px; /* Maximum width */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+    animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+}
+
+/* Close Button */
+.custom-close {
+    color: #333;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-close:hover,
+.custom-close:focus {
+    color: #ff4757; /* Red color on hover */
+    transform: rotate(90deg); /* Rotate effect on hover */
+}
+
+/* Form Elements */
+.custom-form-group {
+    margin-bottom: 20px;
+}
+
+.custom-form-group input,
+.custom-form-group textarea {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9; /* Light background */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-form-group input:focus,
+.custom-form-group textarea:focus {
+    border-color: #ff4757; /* Highlight border color */
+    background-color: #ffffff; /* White background on focus */
+}
+
+/* File Input Label */
+.custom-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Submit Button */
+.custom-action-button {
+    background: linear-gradient(135deg, #ff6b6b, #f7d77c); /* Gradient background */
+    color: #ffffff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.custom-action-button:hover {
+    background: linear-gradient(135deg, #f7d77c, #ff6b6b); /* Inverted gradient on hover */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Modal Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.pop h2{
+    color: black;
+}
+
+
+/* edit dish modal */
+/* Modal Background */
+.custom-dish-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Hide scrollbars */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+/* Modal Content */
+.custom-dish-modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Close Button */
+.custom-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.custom-close:hover,
+.custom-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form */
+.custom-form-group {
+    margin-bottom: 15px;
+}
+
+.custom-form-group input,
+.custom-form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.custom-form-group textarea {
+    height: 100px;
+}
+
+.custom-action-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.custom-action-button:hover {
+    background-color: #45a049;
+}
+
+
+/* -----------------online order css--------------- */
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.order-table-header {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+   justify-content: center;
+}
+
+
+
+.order-table-row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.order-table-cell {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+.order-table-cell-success {
+    color: green;
+    font-weight: bold;
+}
+
+.order-table-cell-failure {
+    color: red;
+    font-weight: bold;
+}
+
+/* Delete Button */
+.delete-button12 {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f44336; /* Red color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button12:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+    padding: 9px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* ----------------chef page css-------------------- */
+/* Chefs Container */
+.chefs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Chef Card */
+.chef-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.chef-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.chef-card h2 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.chef-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.chef-card p strong {
+    color: #000;
+}
+
+
+/* Add Chef Button */
+.button-add-chef {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px;
+}
+
+.button-add-chef:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-in-out;
+}
+
+/* Close Button */
+.modal-close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    margin-top: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button.button-submit {
+    margin-top: 20px;
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.button-submit:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Animation for Modal */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Chef Profile Card */
+/* Main Section Styles */
+main {
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Chef Card Styles */
+.chef-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.chef-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Adjusted for better responsiveness */
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.chef-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.chef-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-right: 20px;
+    border: 4px solid #007bff;
+    transition: transform 0.3s ease;
+}
+
+.chef-card:hover img {
+    transform: scale(1.1);
+}
+
+.chef-card-content {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.chef-card h3 {
+    font-size: 1.8em;
+    color: #007bff;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.chef-card:hover h3 {
+    color: #0056b3;
+}
+
+.chef-card p {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.chef-card .btn-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-details,
+.btn-delete {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-details {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-details:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.divider {
+    border-left: 5px solid #2dff03; /* Gray color for the vertical divider */
+    height: 100%; /* Make the divider span the full height of its container */
+    margin: 0 15px; /* Space to the left and right of the divider */
+    opacity: 0.6; /* Slight transparency for a softer look */
+}
+
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .chef-card {
+        flex-direction: column;
+        width: 100%;
+        max-width: 90%; /* Reduced for better small screen fit */
+    }
+
+    .chef-card img {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .chef-card-content {
+        text-align: center;
+    }
+}
+
+
+/* Add Chef Modal Styles */
+/* Modal Background */
+.custom-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    backdrop-filter: blur(10px); /* Blurred background effect */
+}
+
+/* Modal Content */
+.custom-modal-content {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    margin: 10% auto; /* Center vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 35%; /* Smaller modal */
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: custom-modal-open 0.5s ease-out; /* Animation for opening modal */
+}
+
+/* Modal Opening Animation */
+@keyframes custom-modal-open {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Close Button */
+.custom-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.custom-close:hover,
+.custom-close:focus {
+    color: #ff4444; /* Change color on hover */
+    cursor: pointer;
+}
+
+/* Form Styling */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns layout */
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    grid-column: span 2; /* Full-width elements */
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent input background */
+    color: #333;
+    font-size: 14px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Hover Effects */
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="date"]:hover,
+textarea:hover,
+select:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Lighter on hover */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="file"] {
+    border: none;
+    padding: 0;
+}
+
+textarea {
+    grid-column: span 2; /* Textarea spans both columns */
+}
+
+/* Button Styling */
+.btn-add-chef {
+    background-color: #007BFF; /* Blue background */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+/* Button Hover Effects */
+.btn-add-chef:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0px 0px 15px rgba(0, 123, 255, 0.5);
+}
+
+/* RGB Lighting Effect */
+.custom-modal-content::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5), rgba(255, 255, 0, 0.5), rgba(0, 255, 204, 0.5));
+    background-size: 400% 400%;
+    z-index: -1;
+    filter: blur(15px);
+    border-radius: 15px;
+    animation: custom-rgb-lighting 20s ease infinite;
+}
+
+/* RGB Lighting Animation */
+@keyframes custom-rgb-lighting {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

@@ -1,0 +1,611 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(135deg, rgba(34, 49, 63, 0.8), rgba(44, 62, 80, 0.8));
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(34, 49, 63, 0.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+}
+
+.navbar:hover {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9));
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    width: 50px;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.navbar-brand h1 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(255, 99, 71, 0.4), rgba(255, 140, 80, 0.4));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links a:hover {
+    background: linear-gradient(135deg, rgba(255, 99, 71, 0.6), rgba(255, 140, 80, 0.6));
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(44, 62, 80, 0.9); /* Darker background for dropdown */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 10;
+    min-width: 220px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(34, 49, 63, 0.9); /* Dark border */
+}
+
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.profile-dropdown .dropdown-menu li {
+    list-style: none;
+}
+
+.profile-dropdown .dropdown-menu a {
+    display: block;
+    padding: 18px 25px;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    background: linear-gradient(135deg, rgba(52, 73, 94, 0.6), rgba(44, 62, 80, 0.6));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-dropdown .dropdown-menu a:hover {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8));
+}
+
+/* Dropdown Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Hide loading screen when page is fully loaded */
+body.loaded #loading-screen {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(135deg, rgba(34, 49, 63, 0.8), rgba(44, 62, 80, 0.8));
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(34, 49, 63, 0.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+}
+
+.navbar:hover {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 73, 94, 0.9));
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    width: 50px;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.navbar-brand h1 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(255, 99, 71, 0.4), rgba(255, 140, 80, 0.4));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links a:hover {
+    background: linear-gradient(135deg, rgba(255, 99, 71, 0.6), rgba(255, 140, 80, 0.6));
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(44, 62, 80, 0.9); /* Darker background for dropdown */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 10;
+    min-width: 220px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(34, 49, 63, 0.9); /* Dark border */
+}
+
+.profile-dropdown:hover .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.profile-dropdown .dropdown-menu li {
+    list-style: none;
+}
+
+.profile-dropdown .dropdown-menu a {
+    display: block;
+    padding: 18px 25px;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    background: linear-gradient(135deg, rgba(52, 73, 94, 0.6), rgba(44, 62, 80, 0.6));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-dropdown .dropdown-menu a:hover {
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.8));
+}
+
+/* Dropdown Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Hide loading screen when page is fully loaded */
+body.loaded #loading-screen {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* Body Styling */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease, backdrop-filter 0.3s ease;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+    backdrop-filter: brightness(0.9) contrast(1.1);
+}
+
+
+/* Main Settings Page Section Styling */
+/* Main Settings Page Section Styling */
+.settings-page {
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    margin: 30px auto;
+    max-width: 1200px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(220, 220, 255, 0.5);
+    overflow: hidden;
+}
+
+/* Section Styling */
+.settings-section,
+.event-section,
+.sos-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(220, 220, 255, 0.6));
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(210, 210, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.settings-section:hover,
+.event-section:hover,
+.sos-section:hover {
+    background: linear-gradient(145deg, rgba(245, 245, 255, 0.9), rgba(230, 230, 255, 0.8));
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+/* Section Header Styling */
+.settings-section h2,
+.event-section h2,
+.sos-section h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 4px solid #0044cc;
+    padding-bottom: 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.settings-section h2:hover,
+.event-section h2:hover,
+.sos-section h2:hover {
+    color: #0033a0;
+}
+
+.settings-section h2::after,
+.event-section h2::after,
+.sos-section h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(135deg, #0044cc, #0066ff);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.settings-section h2:hover::after,
+.event-section h2:hover::after,
+.sos-section h2:hover::after {
+    width: 120px;
+}
+
+/* Grid Layout for Buttons */
+.settings-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Button Styling */
+.settings-btn {
+    background: linear-gradient(135deg, #0044cc, #0066ff);
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.settings-btn i {
+    margin-right: 15px;
+    font-size: 28px;
+}
+
+/* Hover Effects */
+.settings-btn:hover {
+    background: linear-gradient(135deg, #0066ff, #0044cc);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.settings-btn.view-tables {
+    background: linear-gradient(135deg, #0066ff, #0044cc);
+text-decoration: none;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+
+.settings-btn.view-tables:hover {
+    background: linear-gradient(135deg, #0044cc, #0066ff);
+   
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+
+.settings-btn:hover::before {
+    width: 0;
+    height: 0;
+}
+
+/* Dark Mode Specific Styles */
+body.dark-mode .settings-btn {
+    background: #fff;
+    border: 1px solid #002a80;
+    color: black;
+}
+
+body.dark-mode .settings-btn:hover {
+    background: linear-gradient(135deg, #0044cc, #0033a0);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(135deg, #0044cc, #0066ff);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    border-radius: 25px;
+    position: relative;
+    bottom: 0;
+    width: calc(100% - 40px);
+    margin: 30px auto;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    font-size: 18px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* slider button for shutdown----------- */
+
+.switch {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Spacing between slider and text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean font */
+    background: linear-gradient(135deg, #0044cc, #0066ff);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.switch:hover{
+    background: linear-gradient(135deg, #0066ff, #0044cc);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: relative;
+    cursor: pointer;
+    width: 60px; /* Slider width */
+    height: 34px; /* Slider height */
+    background-color: #ddd; /* Light grey background */
+    border-radius: 50px; /* Rounded appearance */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 26px; /* Knob height */
+    width: 26px; /* Knob width */
+    left: 4px; /* Initial knob position */
+    bottom: 4px; /* Initial knob position */
+    background-color: #ffffff; /* White knob */
+    border-radius: 50%; /* Round knob */
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle knob shadow */
+}
+
+input:checked + .slider {
+    background-color: #ff0000; /* Green background when checked */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px); /* Move knob when checked */
+}
+
+#toggleLabel {
+    font-size: 16px; /* Slightly larger text for better readability */
+    color: #ffffff; /* Dark grey color */
+    font-weight: 600; /* Bold text for emphasis */
+    transition: color 0.3s; /* Smooth color transition */
+    font-weight: bold;
+}
+
+.switch:hover #toggleLabel {
+    color: #999999; /* Change text color on hover */
+}
+
+
+/* loader */
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Hide loading screen when page is fully loaded */
+body.loaded #loading-screen {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+/* backup */
+

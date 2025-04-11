@@ -1,0 +1,990 @@
+body, html {
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Translucent effect */
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 5px;
+}
+
+.navbar .nav-links a:hover {
+    color: #ff6347; /* Hover effect */
+    border-bottom: 2px solid #ff6347; /* Underline effect */
+}
+
+.navbar .auth-buttons {
+    display: flex;
+    margin-right: 40px;
+}
+
+.navbar .auth-buttons .signup-btn,
+.navbar .auth-buttons .login-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #28a745, #218838);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.navbar .auth-buttons .signup-btn {
+    background: linear-gradient(45deg, #28a745, #218838); /* Gradient for Sign Up */
+}
+
+.navbar .auth-buttons .login-btn {
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Gradient for Login */
+}
+
+.navbar .auth-buttons .signup-btn i,
+.navbar .auth-buttons .login-btn i {
+    margin-right: 5px;
+}
+
+.navbar .auth-buttons .signup-btn:hover,
+.navbar .auth-buttons .login-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .auth-buttons .signup-btn:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34); /* Darker gradient for Sign Up */
+    border: 2px solid #28a745; /* Glowing border effect */
+}
+
+.navbar .auth-buttons .login-btn:hover {
+    background: linear-gradient(45deg, #0056b3, #004085); /* Darker gradient for Login */
+    border: 2px solid #007bff; /* Glowing border effect */
+}
+
+.navbar .nav-links .active{
+    color: red;
+    border-bottom: 2px solid #ff6347;
+    font-weight: bold;
+}
+
+.navbar .auth-buttons .cart-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-right: 50px;
+}
+
+
+
+.navbar .auth-buttons .cart-btn {
+    background: linear-gradient(45deg,#007bff, #0056b3);
+}
+
+
+.navbar .auth-buttons .cart-btn i {
+    margin-right: 5px;
+    color: #ffff;
+    font-weight: bold;
+}
+
+.navbar .auth-buttons .cart-btn:hover{
+    background: linear-gradient(45deg,#498fda, #0c3561);
+    transform: 0.7s ease;
+}
+
+
+/* main section */
+
+main {
+    margin-top: 70px;
+   /* Semi-transparent background */
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 100vh;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-style: Arial, sans-serif;;
+
+}
+
+
+
+h1::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff5722;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+
+
+/* Category title styling */
+.category-title {
+    color: #ff5722;
+    font-size: 28px;
+    margin: 40px 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 2px solid #ff5722;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Dish container and item styles */
+/* Dish container and item styles */
+.dish-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 20px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.dish-item {
+    background: rgba(255, 255, 255, 0.85); /* Transparent white background */
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(15px); /* Enhanced backdrop blur effect */
+}
+
+.dish-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.3), rgba(255, 152, 0, 0.3));
+    z-index: -1;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+.dish-item:hover::before {
+    opacity: 1;
+}
+
+.dish-item:hover {
+    transform: translateY(-15px) scale(1.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.dish-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dish-item img:hover {
+    transform: scale(1.15);
+    filter: brightness(1.2); /* Enhance brightness on hover */
+}
+
+.dish-item h3 {
+    margin: 20px 0;
+    font-size: 28px;
+    color: #ff5722;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.4s ease;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.dish-item h3:hover {
+    color: #e64a19; /* Darken the title color on hover */
+}
+
+.dish-item p {
+    margin: 15px 0;
+    color: #555;
+    font-size: 18px;
+    line-height: 1.8;
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+}
+
+.dish-item form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.dish-item input[type="number"] {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    font-size: 18px;
+    width: 140px;
+    text-align: center;
+    transition: border-color 0.4s ease;
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dish-item input[type="number"]:focus {
+    border-color: #ff5722;
+    outline: none;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dish-item button {
+    background: linear-gradient(135deg, #ff5722, #e64a19);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: background 0.4s ease, transform 0.4s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dish-item button:hover {
+    background: linear-gradient(135deg, #e64a19, #ff5722);
+    transform: translateY(-7px) scale(1.15);
+}
+
+/* Add a hover effect for the entire form area */
+.dish-item form:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .dish-container {
+        grid-template-columns: 1fr;
+    }
+
+    .dish-item {
+        padding: 20px;
+    }
+
+    .dish-item h3 {
+        font-size: 24px;
+    }
+
+    .dish-item img {
+        height: 200px;
+    }
+}
+
+/* Category container styles */
+.category-container {
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.category-container h2 {
+    font-size: 32px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.category-container h2::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 5px;
+    background: linear-gradient(135deg, #ff5722, #e64a19);
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.4s ease;
+}
+
+.category-container h2:hover::after {
+    width: 120px;
+}
+
+/* Style for the checkbox container */
+.dish-item label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Hide the default checkbox */
+.dish-item input[type="checkbox"] {
+    display: none;
+}
+
+/* Custom checkbox design */
+.dish-item input[type="checkbox"] + span {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #555;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+/* Checkbox when checked */
+.dish-item input[type="checkbox"]:checked + span {
+    background-color: #0a74da; /* Change to your desired color */
+    border-color: #0a74da;
+}
+
+/* Checkbox checkmark */
+.dish-item input[type="checkbox"]:checked + span::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Text beside checkbox */
+.dish-item label {
+    font-size: 16px;
+    color: #333;
+}
+
+
+/* cart css */
+/* Cart Button */
+.cart-btn {
+    background-color: #0a74da;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Cart Modal Styles */
+/* Modal Styles */
+/* General Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Dark overlay with transparency */
+    font-family: 'Poppins', sans-serif;
+    backdrop-filter: blur(20px);
+    overflow: auto;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1); /* Subtle glass effect */
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    color: #fff;
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    transform: scale(0.9);
+    animation: scaleIn 0.5s ease forwards;
+}
+
+@keyframes scaleIn {
+    100% {
+        transform: scale(1);
+    }
+}
+
+.close {
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.4s, transform 0.4s;
+}
+
+.close:hover,
+.close:focus {
+    color: #ff4f4f;
+    transform: rotate(90deg) scale(1.2);
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff4f4f, #ff6f6f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#cart-items {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-details h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cart-item-details p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.cart-item-price {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    background-color: #ff4f4f;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 5px;
+}
+
+.quantity-controls button:hover {
+    background-color: #ff6f6f;
+    transform: scale(1.1);
+}
+
+.quantity-controls input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+#cart-summary {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#cart-summary p {
+    margin: 15px 0;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#referral-code {
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#order-now {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #ff4f4f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#order-now:hover {
+    background-color: #ff6f6f;
+}
+
+
+.cart-quantity-control {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.cart-quantity-control button {
+    background-color: #ff4f4f;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cart-quantity-control button:hover {
+    background-color: #ff6f6f;
+    transform: scale(1.1);
+}
+
+.cart-quantity-control input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+}
+
+
+/* payment modal */
+
+/* Payment Modal Styles */
+.payment-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.8); /* Darker, more opaque background */
+    backdrop-filter: blur(10px); /* Increased blur effect */
+    animation: fadeInBackground 0.4s ease-in-out; /* Slightly faster fade-in */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-content1 {
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px; /* Reduced padding */
+    width: 60%; /* Reduced width */
+    height: auto; /* Set height to auto to adjust based on content */
+    max-width: 400px; /* Reduced max-width */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Slightly reduced shadow */
+    overflow: auto;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-top: 5px solid #4CAF50;
+}
+
+.payment-content1 h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.payment-content1 p {
+    color: #555;
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.payment-content1 .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 36px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.payment-content1 .close:hover {
+    color: #ff4d4d;
+    transform: rotate(90deg); /* Rotate close icon on hover */
+}
+
+#payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+
+#payment-method {
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    font-size: 18px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+}
+
+#payment-method:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3); /* Green shadow on focus */
+    outline: none;
+}
+
+
+.payput{
+    padding: 14px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+}
+
+.payput:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3); /* Green shadow on focus */
+    outline: none;
+}
+
+
+#confirm-payment {
+    padding: 12px;
+    background: linear-gradient(135deg, #4CAF50, #2C6B2F); /* Gradient background for button */
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4); /* Larger shadow for more depth */
+}
+
+#confirm-payment:hover {
+    background: linear-gradient(135deg, #2C6B2F, #4CAF50); /* Reversed gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5); /* Larger shadow on hover */
+}
+
+/* Animations */
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Hide the UPI section by default */
+#upi-section {
+    display: none;
+    margin-top: 15px;
+}
+
+#upi-id {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.upi-logos {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.upi-logos img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+/* confirtm modal */
+/* Modal Background */
+#order-success-modal {
+    display: block; /* Use Flexbox for positioning */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Darker translucent background */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    opacity: 1; /* Make visible */
+    visibility: visible; /* Ensure visibility */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+    backdrop-filter: blur(10px); /* Blur effect for background */
+    overflow: hidden; /* Ensure content does not overflow */
+}
+
+/* Modal Content */
+.modal-content1 {
+    background: linear-gradient(135deg, #ffffff, #e0e0e0); /* Gradient background */
+    padding: 40px 30px;
+    border-radius: 20px; /* More rounded corners */
+    width: 90%; /* Responsive width */
+    max-width: 600px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Larger shadow for depth */
+    animation: scaleUp 0.5s ease-out; /* Scale-up animation */
+    position: relative; /* Ensure positioning context for close button */
+    text-align: center;
+    border: 3px solid #4CAF50; /* Border to match tick color */
+}
+.loader-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    z-index: 9999;
+    backdrop-filter: blur(10px); /* Blurred background */
+}
+
+.loader-modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.loader-modal-content p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Animated Tick Symbol */
+.modal-content1::before {
+    content: "\2713"; /* Unicode tick symbol */
+    font-size: 70px; /* Larger size of the tick symbol */
+    color: #4CAF50; /* Green color for the tick */
+    position: absolute;
+    top: -60px; /* Position above the modal */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    animation: tickGlow 1.5s ease-in-out infinite, tickBounce 1s ease-in-out infinite; /* Glow and bounce animations */
+}
+
+/* Tick Glow Animation */
+@keyframes tickGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        text-shadow: 0 0 20px #4CAF50, 0 0 30px #4CAF50, 0 0 40px #4CAF50;
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+/* Tick Bounce Animation */
+@keyframes tickBounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px) scale(1.1);
+    }
+}
+
+/* Close Button */
+.close1 {
+    color: #333;
+    font-size: 36px; /* Larger close button */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.close1:hover,
+.close1:focus {
+    color: #000; /* Darker color on hover */
+    transform: scale(1.2); /* Slightly enlarge on hover */
+}
+
+/* Header */
+.modal-content1 h2 {
+    margin: 0;
+    color: #4CAF50; /* Green color */
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 32px; /* Larger header */
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for text */
+}
+
+/* Paragraph */
+.modal-content1 p {
+    color: #666;
+    font-family: 'Poppins', sans-serif; /* Stylish font */
+    font-size: 18px;
+    line-height: 1.6; /* Increased line-height for better readability */
+}
